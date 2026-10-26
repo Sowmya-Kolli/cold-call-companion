@@ -279,21 +279,41 @@ Tests cover:
 
 ---
 
-## 9. Deployment (Render + Vercel — to be completed)
+## 9. Deployment
 
-### Backend (Render)
-1. Create a new **Web Service** on Render
-2. Set root directory to `server/`
-3. Build command: `npm install`
-4. Start command: `npm start`
-5. Add all env vars from `server/.env.example` in the Render dashboard
-6. Set `FRONTEND_ORIGIN` to your Vercel frontend URL
+### Live Application
 
-### Frontend (Vercel)
-1. Import the repository to Vercel
-2. Set root directory to `app/`
-3. Add `VITE_API_BASE_URL=https://your-render-backend.onrender.com`
-4. Deploy
+- **Frontend (Vercel):** https://cold-call-companion-nkxufaam7-kolli-sowmyas-projects.vercel.app
+- **Backend (Render):** https://cold-call-companion-x47a.onrender.com
+- **Backend Health Check:** https://cold-call-companion-x47a.onrender.com/health
+
+### Frontend Deployment
+
+The frontend is deployed on Vercel.
+
+- Root directory: `app`
+- Framework: Vite
+- Build command: `npm run build`
+- Output directory: `dist`
+- Environment variable: `VITE_API_BASE_URL`, configured to point to the deployed Render backend.
+
+### Backend Deployment
+
+The backend is deployed on Render.
+
+- Root directory: `server`
+- Build command: `npm install`
+- Start command: `npm start`
+- Environment variables are configured in the Render dashboard.
+
+### Database
+
+Supabase PostgreSQL is used for persistent call data. The database schema is available in `database/schema.sql`.
+
+### AI Integration
+
+Gemini is used for AI-assisted call summaries and suggestions. The AI output is advisory; the caller remains responsible for the final call outcome.
+
 
 ---
 
